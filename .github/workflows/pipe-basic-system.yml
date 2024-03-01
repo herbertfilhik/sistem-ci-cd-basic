@@ -7,13 +7,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+
+    - name: Debugging - List directories at root
+      run: |
+        pwd
+        ls -la
+
+    - name: Debugging - Try to change directory
+      run: |
+        cd sistem-ci-cd-basic || exit 1
+        pwd
+        ls -la
+        cd meu-app-express || exit 1
+        pwd
+        ls -la
+
     - name: Install dependencies
       run: npm install
       working-directory: sistem-ci-cd-basic/meu-app-express
+
     - name: Run tests
       run: npm test
       working-directory: sistem-ci-cd-basic/meu-app-express
