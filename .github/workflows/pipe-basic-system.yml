@@ -11,13 +11,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
-    - name: Change to the project directory  # Passo adicionado
-      run: cd meu-app-express
-    - name: Install dependencies
-      run: npm install
-    - name: Run tests
-      run: npm test
+    - name: Install dependencies and run tests
+      run: |
+        cd sistem-ci-cd-basic/meu-app-express
+        npm install
+        npm test
     - name: Deploy to Staging
       if: github.ref == 'refs/heads/main'
-      run: echo "Deploying to staging environment"
+      run: |
+        cd sistem-ci-cd-basic/meu-app-express
+        echo "Deploying to staging environment"
       # Adicione aqui os comandos para deploy, dependendo do seu ambiente de staging.
