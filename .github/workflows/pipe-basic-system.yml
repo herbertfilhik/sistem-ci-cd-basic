@@ -16,11 +16,30 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '14'
+        node-version: '14.x'
 
+    - name: Update NPM
+      run: npm install -g npm@6.x
+      working-directory: meu-app-express
+
+    - name: Clear npm cache
+      run: npm cache clean --force
+    
+    - name: Delete node_modules and package-lock.json
+      run: rm -rf node_modules package-lock.json
+    
     - name: Install dependencies
       run: npm install
       working-directory: meu-app-express
+
+    - name: Print Node.js version
+      run: node -v
+  
+    - name: Print NPM version
+      run: npm -v
+  
+    - name: List installed NPM packages
+      run: npm list
 
     - name: Run tests
       run: npm test
