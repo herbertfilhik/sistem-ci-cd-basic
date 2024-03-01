@@ -13,12 +13,11 @@ jobs:
         node-version: '14'
     - name: Install dependencies
       run: npm install
-      working-directory: ./sistem-ci-cd-basic/meu-app-express
+      working-directory: sistem-ci-cd-basic/meu-app-express
     - name: Run tests
       run: npm test
-      working-directory: ./sistem-ci-cd-basic/meu-app-express
+      working-directory: sistem-ci-cd-basic/meu-app-express
     - name: Deploy to Staging
       if: github.ref == 'refs/heads/main'
       run: echo "Deploying to staging environment"
-      working-directory: ./sistem-ci-cd-basic/meu-app-express
-      # Adicione aqui os comandos para deploy, dependendo do seu ambiente de staging.
+      working-directory: sistem-ci-cd-basic/meu-app-express
