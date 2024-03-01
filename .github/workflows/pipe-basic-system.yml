@@ -1,4 +1,4 @@
-name: CI/CD Pipeline Basic
+name: CI/CD Pipeline Básico
 
 on:
   push:
@@ -13,29 +13,33 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    - name: Configurar Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
 
-    - name: Install dependencies
+    - name: Instalar dependências
       run: npm install
       working-directory: meu-app-express
 
-    - name: Print Node.js version
+    - name: Imprimir versão do Node.js
       run: node -v
-  
-    - name: Print NPM version
+
+    - name: Imprimir versão do NPM
       run: npm -v
-  
-    - name: List installed NPM packages
+
+    - name: Listar pacotes NPM instalados
       run: npm list
 
-    - name: Run tests
+    - name: Instalar jest-html-reporter
+      run: npm install jest-html-reporter --save-dev
+      working-directory: meu-app-express
+
+    - name: Executar testes
       run: npm test
       working-directory: meu-app-express
 
-    - name: Upload Test Report as Artifact
+    - name: Carregar Relatório de Testes como Artefato
       uses: actions/upload-artifact@v2
       with:
         name: test-report
