@@ -11,6 +11,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+    - name: Change to the project directory  # Passo adicionado
+      run: cd meu-app-express
     - name: Install dependencies
       run: npm install
     - name: Run tests
