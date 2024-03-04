@@ -9,4 +9,4 @@ Objetivo do Exercício: Criar um pipeline básico de CI/CD utilizando GitHub Act
 
 ## Execução
 - Acessar Actions e executar a pipe
-- Analisar o pipe-basic-system.yml em para sistem-ci-cd-basic/.github/workflows/ para entendimento de como foi feita a implementação.
+- Analisar o 'pipe-basic-system.yml' em 'sistem-ci-cd-basic/.github/workflows/' para entendimento de como foi feita a implementação.
